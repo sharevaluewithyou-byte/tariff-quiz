@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e38">
+  <meta name="description" content="관세율의 종류, 법정 적용 우선순위, 실제 적용세율을 학습하는 무역실무 카드 퀴즈">
+  <title>관세율 카드 챌린지 | Tariff Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#game">퀴즈로 바로 이동</a>
+  <header class="hero">
+    <div class="hero-inner container">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">T</span><span>TARIFF <strong>LAB</strong></span><span class="brand-tag">TRADE PRACTICE</span></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> 대학 무역실무 학습 게임 · LEVEL 01</div>
+        <h1>관세율 카드 <em>챌린지</em></h1>
+        <p>관세의 이름을 익히고, 적용 순서를 배열하고, 실제 통관 상황에서 적용할 세율을 결정하세요.</p>
+        <div class="hero-pills"><span>3개 라운드</span><span>총 19문제</span><span>별도 설치 없이 실행</span></div>
+      </div>
+      <div class="hero-orbit" aria-hidden="true"><div class="orbit-center">01 <small>TRADE</small></div></div>
+    </div>
+  </header>
+
+  <main class="container page-body" id="game">
+    <section class="scoreboard" aria-label="학습 현황">
+      <div class="stat"><span class="stat-label">누적 점수</span><strong id="score">0 <small>/ 270</small></strong></div>
+      <div class="stat"><span class="stat-label">완료 문제</span><strong id="completed">0 <small>/ 19</small></strong></div>
+      <div class="stat"><span class="stat-label">오답 횟수</span><strong id="mistakes">0 <small>회</small></strong></div>
+      <div class="stat progress-stat"><span class="stat-label">전체 진행률 <span id="progress-percent">0%</span></span><div class="progress-track" aria-hidden="true"><div id="progress-fill" class="progress-fill"></div></div><span class="progress-caption">학습 기록은 이 브라우저에 자동 저장됩니다.</span></div>
+    </section>
+
+    <nav class="round-nav" aria-label="라운드 선택">
+      <button type="button" class="round-tab active" data-tab="match" aria-current="step"><span class="round-num">01</span><span class="round-name"><b>관세율 종류</b><small>카드 매칭 · 8문제</small></span><span id="tab-match-state" class="round-state" aria-hidden="true">0/8</span></button>
+      <button type="button" class="round-tab" data-tab="priority"><span class="round-num">02</span><span class="round-name"><b>적용 우선순위</b><small>순서 배열 · 6문제</small></span><span id="tab-priority-state" class="round-state" aria-hidden="true">0/6</span></button>
+      <button type="button" class="round-tab" data-tab="cases"><span class="round-num">03</span><span class="round-name"><b>실전 판단</b><small>사례 선택 · 5문제</small></span><span id="tab-cases-state" class="round-state" aria-hidden="true">0/5</span></button>
+    </nav>
+
+    <section id="round-content" class="game-panel" aria-label="퀴즈" aria-live="off"></section>
+
+    <section class="reference-section">
+      <div class="reference-head"><div><div class="section-eyebrow">REFERENCE</div><h2>학습 노트와 법령 근거</h2></div><button id="toggle-notes" class="ghost-button" type="button" aria-expanded="false" aria-controls="notes-content">학습 노트 펼치기 <span aria-hidden="true">＋</span></button></div>
+      <div id="notes-content" class="notes-content" hidden>
+        <div class="notes-grid">
+          <article><h3>관세법 제50조</h3><p>탄력관세 등 법률에서 정한 세율 그룹 간 적용 순서를 다룹니다. 기본세율보다 잠정세율을 우선합니다. 국제협력·편익관세와 할당관세 등에는 별도의 세율 비교 조건이 있습니다.</p></article>
+          <article><h3>FTA관세법 제5조</h3><p>원산지 요건 등을 충족하더라도 FTA 협정세율이 관세법상 적용세율과 같거나 높으면 관세법상 세율이 우선합니다. 덤핑방지관세 등은 별도 우선 규정의 적용을 받습니다.</p></article>
+          <article><h3>무역실무에서의 활용</h3><p>품목분류(HS)와 원산지, 수입일, 관련 특별관세를 확인한 뒤 적용세율을 판단합니다. 게임 속 수치는 법률 원리를 이해하기 위한 가상 사례입니다.</p></article>
+        </div>
+        <div class="source-links"><a href="https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1026599107" target="_blank" rel="noopener noreferrer">국가법령정보센터: 관세법 제50조 ↗</a><a href="https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&amp;joBrNo=00&amp;joNo=0005&amp;lsiSeq=276141&amp;urlMode=lsScJoRltInfoR" target="_blank" rel="noopener noreferrer">국가법령정보센터: FTA관세법 제5조 ↗</a></div>
+      </div>
+    </section>
+
+    <footer class="footer"><p>교육용 시뮬레이션 · 2026년 11월 기준</p><p>실제 세율은 품목·원산지·신고일·적용 요건 및 최신 법령에 따라 달라질 수 있습니다.</p><button id="reset-all" class="reset-button" type="button">전체 학습 기록 초기화</button></footer>
+  </main>
+  <div class="sr-only" role="status" aria-live="polite" id="announcer"></div>
+</body>
+</html>
